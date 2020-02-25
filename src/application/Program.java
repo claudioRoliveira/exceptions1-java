@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import model.entities.Reservation;
+import model.exceptions.DomainException;
 
 public class Program {
 
@@ -29,17 +30,20 @@ public class Program {
 			System.out.println();
 			System.out.println("Enter Date to Update the reservation");
 			System.out.println("Check-in date: ");
-			Date checkIn1 = sdf.parse(sc.next());
+			checkIn = sdf.parse(sc.next());
 			System.out.println("Check-out date: ");
-			Date checkOut1 = sdf.parse(sc.next());
+			checkOut = sdf.parse(sc.next());
 		
-			reserva.updateDates(checkIn1, checkOut1);
+			reserva.updateDates(checkIn, checkOut);
 			System.out.println("Reservation: " + reserva);
 		}
 		catch (ParseException e) {
 			
 		}
-		
+		catch (DomainException e) {
+		 System.out.println("Error in reservation: " + e.getMessage());
+		}
+		sc.close();
 	}
 
 }
