@@ -41,10 +41,6 @@ public class Reservation {
 	
 	public void updateDates(Date checkIn, Date checkOut) {
 		
-		if (!checkOut.after(checkIn)){
-
-		}
-		else(checkIn.) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 	}
